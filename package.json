@@ -1,0 +1,24 @@
+{
+  "name": "fc-vue",
+  "version": "1.0.0",
+  "description": "一个 node cli ，帮助你更快的开发 vue 项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.fcbox.com:WA/fcbox-webfrontend/common/share/fc-vue-cli.git"
+  },
+  "author": "zhongyi",
+  "license": "ISC",
+  "bin": {
+    "fc-vue": "bin/index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^5.1.0",
+    "inquirer": "^7.3.1",
+    "shelljs": "^0.8.4"
+  }
+}
