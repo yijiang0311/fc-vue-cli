@@ -5,9 +5,9 @@ const { error } = require('./util');
  * 检查 用户是否在项目根目录或者./src目录下执行，是否有约定的项目目录结构，是否已经存在该组件
  * @param {Stirng} name
  * @param {Object} cmdObj
- * @return {Object} {destDirRootName ,destDir} 目标文件夹名称，目标文件路径
+ * @return {Object} {destDirRootName ,destDir,rootDir} 目标文件夹名称，目标文件路径,项目所在目录
  */
-const checkContext = (name, cmdObj,type) => {
+const checkContext = (name, cmdObj, type) => {
   // console.log(process.cwd());
   let destDir, destDirRoot, destDirRootName;
   const curDir = path.resolve('.');
@@ -60,7 +60,7 @@ const checkContext = (name, cmdObj,type) => {
     error(`${name} 页面/组件 已经存在，创建失败！`);
     process.exit(1);
   }
-  return { destDirRootName, destDir };
+  return { destDirRootName, destDir, rootDir };
 };
 
 module.exports = checkContext;

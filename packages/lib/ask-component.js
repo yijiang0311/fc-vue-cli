@@ -5,15 +5,15 @@ const askQuestions = () => {
     {
       name: 'FILENAME',
       type: 'input',
-      message: 'What is the name of component?[支持多级目录,例如：top/nav]',
+      message: '请输入页面的名称?[支持多级目录,例如：top/nav]',
     },
     {
       type: 'list',
       name: 'SIMPLE',
       message: 'What is the template type?',
       choices: [
-        'normal:【create .vue .js .[style]】 ',
-        'simple: 【create .vue】',
+        'normal:【同时创建 .vue .js .[style]】',
+        'simple:【只创建 .vue】',
       ],
       filter: function (val) {
         return val.split(':')[0] === 'simple' ? true : false;
