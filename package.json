@@ -1,6 +1,6 @@
 {
   "name": "fc-vue",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "一个 node cli ，帮助你更快的开发 vue 项目",
   "main": "index.js",
   "scripts": {

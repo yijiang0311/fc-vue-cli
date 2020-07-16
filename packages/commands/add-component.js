@@ -34,7 +34,7 @@ module.exports = async (name, cmdObj) => {
     let { destFile } = copyTemplate(destDir, simple, cssType);
 
     if (fs.existsSync(destFile)) {
-      log(`成功创建${name},请在${destDir}下查看`);
+      log(`成功创建${name}组件,请在${destDir}下查看`);
     } else {
       console.error(
         chalk.red(`创建失败，请到项目【根目录】或者【@src】目录下执行该操作`)

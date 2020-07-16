@@ -3,7 +3,7 @@ const path = require('path');
 const { promisify } = require('util');
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
-
+const { error } = require('./util');
 /**
  *
  * @param {String} name 页面名称
@@ -41,8 +41,9 @@ const addRouter = async (name, rootDir, simple, destDirRootName, title) => {
       : '';
     let componentStr = `component: () =>
         import(/* webpackChunkName: "${name}" */ '${pagePath}'),`;
-
+    let isMatch = false;
     content = content.replace(reg, function (match, $1, index) {
+      isMatch = true;
       $1 = $1.trim();
       if (!$1.endsWith(',')) {
         $1 += ',';
@@ -66,10 +67,14 @@ const addRouter = async (name, rootDir, simple, destDirRootName, title) => {
 ];`;
       }
     });
-    try {
-      await writeFile(routerPath, content, 'utf-8');
-    } catch (err) {
-      error(err);
+    if (isMatch) {
+      try {
+        await writeFile(routerPath, content, 'utf-8');
+      } catch (err) {
+        error(err);
+      }
+    } else {
+      error('路由添加失败，请检查您的路由文件内容是否符合规范！');
     }
   } catch (err) {
     error(err);
